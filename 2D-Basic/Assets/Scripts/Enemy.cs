@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     {
         //[warn] min <= range < max;
         velocity = Random.Range(-1, 2);
+        spriteRenderer.flipX = velocity == 1;
 
         animator.SetInteger("velocity", velocity);
 
