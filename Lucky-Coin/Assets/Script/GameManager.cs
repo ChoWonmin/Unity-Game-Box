@@ -48,4 +48,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void finish()
+    {
+        Time.timeScale = 0;
+        restartButton.SetActive(true);
+        restartButton.GetComponentInChildren<Text>().text = "Finish!! :)";
+    }
+
 }

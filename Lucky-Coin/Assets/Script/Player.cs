@@ -74,6 +74,12 @@ public class Player : MonoBehaviour
 
             coin.SetActive(false);
         }
+
+        if (collision.gameObject.tag == "Finish")
+        {
+            PlaySound("FINISH");
+            gameManager.finish();
+        }
     }
 
     void PlaySound(string action)
