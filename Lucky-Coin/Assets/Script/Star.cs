@@ -5,21 +5,17 @@ using UnityEngine.Tilemaps;
 
 public class Star : MonoBehaviour
 {
+    public float twinkleTime;
     private Tilemap tileMap;
     // Start is called before the first frame update
     void Awake()
     {
         tileMap = GetComponent<Tilemap>();
-        // Twinkle();
-    }
-
-    private void Update()
-    {
+        Twinkle();
     }
 
     private void Twinkle()
     {
-        Debug.Log("Twinkle");
         if (tileMap.color.a == 1)
         {
             tileMap.color = new Vector4(1, 1, 1, 0);
@@ -28,7 +24,7 @@ public class Star : MonoBehaviour
             tileMap.color = new Vector4(1, 1, 1, 1);
         }
         
-        Invoke("Twinkle", 1);
+        Invoke("Twinkle", twinkleTime);
         
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameManager gameManager;
+    public GameObject rainbowRight;
+    public GameObject rainbowLeft;
 
     public float speed;
     public float stopSpeed;
@@ -15,6 +17,7 @@ public class Player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     AudioSource audio;
     CapsuleCollider2D capsuleCollider;
+    Animator animator;
 
     // sound
     public AudioClip audioDamaged;
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         audio = GetComponent<AudioSource>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,11 +40,34 @@ public class Player : MonoBehaviour
         if (Input.GetButtonUp("Vertical"))
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, rigidbody.velocity.y * stopSpeed);
+            animator.SetBool("isWalking", false);
         }
 
         if (Input.GetButtonUp("Horizontal"))
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x * stopSpeed, rigidbody.velocity.y);
+            animator.SetBool("isWalking", false);
+        }
+
+        // walking animation
+        if (Input.GetButton("Vertical") || Input.GetButton("Horizontal"))
+        {
+
+            // rainbow.transform.position.Set(direction?-1:1, 0, 0);
+            if (rigidbody.velocity.x < 0)
+            {
+                spriteRenderer.flipX = true;
+                rainbowLeft.SetActive(true);
+                rainbowRight.SetActive(false);
+            } else
+            {
+                spriteRenderer.flipX = false;
+                rainbowLeft.SetActive(false);
+                rainbowRight.SetActive(true);
+            }
+
+
+            animator.SetBool("isWalking", true);
         }
     }
 
