@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     public float speed;
     public float stopSpeed;
+    public float maxSpeed;
 
     int health = 3;
 
@@ -80,6 +81,23 @@ public class Player : MonoBehaviour
         // move
         float h = Input.GetAxisRaw("Horizontal");
         rigidbody.AddForce(Vector2.right * h * speed * Time.deltaTime, ForceMode2D.Impulse);
+
+        // Max Speed
+        if (Mathf.Abs(rigidbody.velocity.x) > maxSpeed)
+        {
+            rigidbody.velocity = new Vector2(
+                maxSpeed * Mathf.Sign(rigidbody.velocity.x), 
+                rigidbody.velocity.y
+            );
+        }
+
+        if (Mathf.Abs(rigidbody.velocity.y) > maxSpeed)
+        {
+            rigidbody.velocity = new Vector2(
+                rigidbody.velocity.x,
+                maxSpeed* Mathf.Sign(rigidbody.velocity.y)
+            );
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

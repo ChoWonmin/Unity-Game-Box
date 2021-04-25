@@ -13,15 +13,17 @@ public class Enemy : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         rigidbody.velocity = new Vector2(-velocity * Time.deltaTime, rigidbody.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Wall")
+        {
+            transform.position = new Vector3(49, Random.Range(-5,6));
+        }
     }
 
 }
