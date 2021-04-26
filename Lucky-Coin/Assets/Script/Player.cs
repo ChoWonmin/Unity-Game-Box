@@ -155,6 +155,9 @@ public class Player : MonoBehaviour
         health--;
         gameManager.deactiveHealth(health);
 
+        ((SpriteRenderer)rainbowLeft.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 0.0f);
+        ((SpriteRenderer)rainbowRight.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 0.0f);
+
         if (health < 1) // Die
         {
             gameManager.openRestart();
@@ -169,6 +172,9 @@ public class Player : MonoBehaviour
     {
         gameObject.layer = 8;
         spriteRenderer.color = new Vector4(1, 1, 1, 1);
+
+        ((SpriteRenderer)rainbowLeft.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 1);
+        ((SpriteRenderer)rainbowRight.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 1);
     }
 
     private void OnDie()
