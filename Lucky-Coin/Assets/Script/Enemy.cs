@@ -13,6 +13,11 @@ public class Enemy : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        transform.Rotate(0, 0, velocity * Time.deltaTime);
+    }
+
     private void FixedUpdate()
     {
         rigidbody.velocity = new Vector2(-velocity * Time.deltaTime, rigidbody.velocity.y);
