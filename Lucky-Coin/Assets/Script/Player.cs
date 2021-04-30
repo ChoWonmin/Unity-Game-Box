@@ -153,6 +153,7 @@ public class Player : MonoBehaviour
         spriteRenderer.color = new Vector4(1, 1, 1, 0.4f);
         PlaySound("DAMAGED");
         health--;
+        animator.SetBool("isDamaged", true);
         gameManager.deactiveHealth(health);
 
         ((SpriteRenderer)rainbowLeft.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 0.0f);
@@ -172,6 +173,7 @@ public class Player : MonoBehaviour
     {
         gameObject.layer = 8;
         spriteRenderer.color = new Vector4(1, 1, 1, 1);
+        animator.SetBool("isDamaged", false);
 
         ((SpriteRenderer)rainbowLeft.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 1);
         ((SpriteRenderer)rainbowRight.GetComponent<SpriteRenderer>()).color = new Vector4(1, 1, 1, 1);
