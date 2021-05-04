@@ -16031,6 +16031,8 @@ MonoBehaviour:
   audioCoin: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
   audioDie: {fileID: 8300000, guid: a0010a1a0c474473b81729eb770c485f, type: 3}
   audioFinish: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
+  damagedSprite: {fileID: 6757282713640645180, guid: f9709a7c899b64541886021be9f3d55e,
+    type: 3}
 --- !u!70 &1289806275
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

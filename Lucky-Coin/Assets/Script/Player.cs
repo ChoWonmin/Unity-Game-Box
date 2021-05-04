@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public AudioClip audioDie;
     public AudioClip audioFinish;
 
+    public Sprite damagedSprite;
+
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
 
             animator.SetBool("isWalking", true);
         }
+
     }
 
     private void FixedUpdate()
