@@ -116,9 +116,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Coin")
         {
             GameObject coin = collision.gameObject;
-            int score = coin.GetComponent<Coin>().score;
             PlaySound("COIN");
-            gameManager.addScore(score);
+            gameManager.addScore(coin.GetComponent<Coin>());
 
             coin.SetActive(false);
         }

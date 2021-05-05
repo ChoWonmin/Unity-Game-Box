@@ -7,13 +7,24 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text stageText;
-    public Text scoreText;
+    
+    public Text btcScoreText;
+    public Text ethScoreText;
+    public Text xrpScoreText;
+
     public Image[] healthImageList;
     public GameObject restartButton;
 
-    int stageScore = 0;
+    int btcScore = 0;
+    int ethScore = 0;
+    int xrpScore = 0;
+
+    int btcTotalScore = 0;
+    int ethTotalScore = 0;
+    int xrpTotalScore = 0;
+
     int stage = 1;
-    int totalScore = 0;
+
 
     private void Awake()
     {
@@ -31,10 +42,25 @@ public class GameManager : MonoBehaviour
         healthImageList[index].color = new Vector4(1,1,1, 0.4f);
     }
 
-    public void addScore(int score)
+    public void addScore(Coin coin)
     {
-        stageScore += score;
-        scoreText.text = (totalScore + stageScore).ToString();
+        if (coin.name == "Btc")
+        {
+            btcScore += coin.score;
+            btcScoreText.text = (btcTotalScore + btcScore).ToString();
+        }
+
+        if (coin.name == "Eth")
+        {
+            ethScore += coin.score;
+            ethScoreText.text = (ethTotalScore + ethScore).ToString();
+        }
+
+        if (coin.name == "Xrp")
+        {
+            xrpScore += coin.score;
+            xrpScoreText.text = (xrpTotalScore + xrpScore).ToString();
+        }
     }
 
     public void openRestart()
