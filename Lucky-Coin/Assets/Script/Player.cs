@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     CapsuleCollider2D capsuleCollider;
     Animator animator;
 
+
     // sound
     public AudioClip audioDamaged;
     public AudioClip audioCoin;
