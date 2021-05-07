@@ -125,6 +125,8 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Finish")
         {
+            collision.gameObject.GetComponent <Finish>().open();
+            gameObject.layer = 9;
             PlaySound("FINISH");
             gameManager.finish();
         }
@@ -147,6 +149,7 @@ public class Player : MonoBehaviour
                 audio.clip = audioFinish;
                 break;
         }
+
         audio.Play();
     }
 

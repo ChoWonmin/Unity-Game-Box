@@ -10,13 +10,12 @@ public class Finish : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        animator.SetTrigger("Opening");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void open()
     {
-        
+        Debug.Log("open");
+        animator.SetTrigger("Opening");
     }
 
 
