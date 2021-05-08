@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public float maxSpeed;
 
     int health = 3;
+    bool isStop = false;
 
     Rigidbody2D rigidbody;
     SpriteRenderer spriteRenderer;
@@ -80,11 +81,13 @@ public class Player : MonoBehaviour
     {
         // move
         float v = Input.GetAxisRaw("Vertical");
-        rigidbody.AddForce(Vector2.up * v * speed * Time.deltaTime, ForceMode2D.Impulse);
-
-        // move
         float h = Input.GetAxisRaw("Horizontal");
-        rigidbody.AddForce(Vector2.right * h * speed * Time.deltaTime, ForceMode2D.Impulse);
+
+        if (!isStop)
+        {
+            rigidbody.AddForce(Vector2.up * v * speed * Time.deltaTime, ForceMode2D.Impulse);
+            rigidbody.AddForce(Vector2.right * h * speed * Time.deltaTime, ForceMode2D.Impulse);
+        }
 
         // Max Speed
         if (Mathf.Abs(rigidbody.velocity.x) > maxSpeed)
@@ -127,6 +130,12 @@ public class Player : MonoBehaviour
         {
             collision.gameObject.GetComponent <Finish>().open();
             gameObject.layer = 9;
+
+            isStop = true;
+            rigidbody.velocity = new Vector3(0, 0, 0);
+            rigidbody.gravityScale = 0;
+
+
             PlaySound("FINISH");
             gameManager.finish();
         }
