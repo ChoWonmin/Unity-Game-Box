@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public Image[] healthImageList;
     public GameObject restartButton;
 
+    public GameObject startInfo;
+    public GameObject finishInfo;
+
     int btcScore = 0;
     int ethScore = 0;
     int xrpScore = 0;
@@ -28,13 +31,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        Time.timeScale = 0;   
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Time.timeScale == 0 && Input.anyKeyDown)
+        {
+            go();
+        }
     }
 
     public void deactiveHealth(int index)
@@ -76,9 +82,16 @@ public class GameManager : MonoBehaviour
 
     public void finish()
     {
+        finishInfo.SetActive(true);
         // Time.timeScale = 0;
-        restartButton.SetActive(true);
-        restartButton.GetComponentInChildren<Text>().text = "Finish!! :)";
+        // restartButton.SetActive(true);
+        // restartButton.GetComponentInChildren<Text>().text = "Finish!! :)";
+    }
+
+    public void go()
+    {
+        Time.timeScale = 1;
+        startInfo.SetActive(false);
     }
 
 }
