@@ -29,20 +29,6 @@ public class GameManager : MonoBehaviour
     int stage = 1;
 
 
-    private void Awake()
-    {
-        Time.timeScale = 0;   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Time.timeScale == 0 && Input.anyKeyDown)
-        {
-            go();
-        }
-    }
-
     public void deactiveHealth(int index)
     {
         healthImageList[index].color = new Vector4(1,1,1, 0.4f);
@@ -86,12 +72,6 @@ public class GameManager : MonoBehaviour
         // Time.timeScale = 0;
         // restartButton.SetActive(true);
         // restartButton.GetComponentInChildren<Text>().text = "Finish!! :)";
-    }
-
-    public void go()
-    {
-        Time.timeScale = 1;
-        startInfo.SetActive(false);
     }
 
 }
