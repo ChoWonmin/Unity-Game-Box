@@ -655,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &156045474
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8447,9 +8447,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uAC15\uC544\uC9C0\uAC00 \uCC3E\uC544\uB0B8 \uD589\uC6B4\uC758 \uCF54\uC778\uC740
-    \"\"\" \uC785\uB2C8\uB2E4.\n\uB354 \uB9CE\uC740 \uC5EC\uC815\uC744 \uD568\uAED8\uD558\uB824\uBA74
-    \uC544\uB798 \uC8FC\uC18C\uC5D0 \uB4E4\uC5B4\uC624\uC138\uC694."
+  m_Text: "Finish Ment..\nhello world\n\uAC15\uC544\uC9C0\uAC00 \uCC3E\uC544\uB0B8
+    \uD589\uC6B4\uC758 \uCF54\uC778\uC740 \"\"\" \uC785\uB2C8\uB2E4.\n\uB354 \uB9CE\uC740
+    \uC5EC\uC815\uC744 \uD568\uAED8\uD558\uB824\uBA74 \uC544\uB798 \uC8FC\uC18C\uC5D0
+    \uB4E4\uC5B4\uC624\uC138\uC694."
 --- !u!222 &571415080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17490,7 +17491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1529930435
 RectTransform:
   m_ObjectHideFlags: 0
