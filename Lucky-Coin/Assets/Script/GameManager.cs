@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void openLink()
     {
-        Application.OpenURL("www.naver.com");
+        Application.OpenURL("https://opensea.io/accounts/Crypto_Warhol");
     }
 
     public void finish()
