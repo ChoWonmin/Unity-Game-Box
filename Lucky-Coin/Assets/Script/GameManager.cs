@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void openLink()
+    {
+        Application.OpenURL("www.naver.com");
+    }
+
     public void finish()
     {
         finishInfo.SetActive(true);
