@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text stageText;
-    
+    public Text finishText;
+
     public Text btcScoreText;
     public Text ethScoreText;
     public Text xrpScoreText;
@@ -28,6 +29,14 @@ public class GameManager : MonoBehaviour
 
     int stage = 1;
 
+    private void Awake()
+    {
+        string[] coins = {"Bitcoin", "Ethereum", "ripple", "eosio", "doge", "ChainLink" };
+        string foundCoin = coins[(int)Random.Range(0, 5)];
+        
+        // finishText.text = 
+        //    "Congratulations!\nyou successfully finished your space trip.\n\nThe coin that doggy found is " + foundCoin +".";
+    }
 
     public void deactiveHealth(int index)
     {
