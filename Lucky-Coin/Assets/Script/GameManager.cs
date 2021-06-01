@@ -77,7 +77,8 @@ public class GameManager : MonoBehaviour
 
     public void openLink()
     {
-        Application.OpenURL("https://opensea.io/accounts/Crypto_Warhol");
+        // Application.OpenURL("https://opensea.io/accounts/Crypto_Warhol");
+        Application.OpenURL("https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/66872492214985820238299728493571963531351113322366077754247795008291330850817");
     }
 
     public void finish()
