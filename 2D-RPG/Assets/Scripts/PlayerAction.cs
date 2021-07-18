@@ -16,7 +16,7 @@ public class PlayerAction : MonoBehaviour
     void Update()
     {
         h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Horizontal");
+        v = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
