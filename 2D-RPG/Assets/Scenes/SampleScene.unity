@@ -3418,8 +3418,8 @@ GameObject:
   - component: {fileID: 1102542611}
   - component: {fileID: 1102542610}
   - component: {fileID: 1102542609}
-  - component: {fileID: 1102542608}
   - component: {fileID: 1102542612}
+  - component: {fileID: 1102542608}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3439,6 +3439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646d1160660ee9b4e8e6ef1191163e76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!50 &1102542609
 Rigidbody2D:
   serializedVersion: 4
@@ -3454,7 +3455,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

@@ -6,6 +6,7 @@ public class PlayerAction : MonoBehaviour
 {
     float h;
     float v;
+    public float speed;
 
     Rigidbody2D rigidbody;
 
@@ -21,6 +22,6 @@ public class PlayerAction : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = new Vector2(h, v);
+        rigidbody.velocity = new Vector2(h, v) * speed;
     }
 }
