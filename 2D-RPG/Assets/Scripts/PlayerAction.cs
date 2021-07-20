@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
+    public float speed;
+
     float h;
     float v;
-    public float speed;
+    bool isHorizonMove;
 
     Rigidbody2D rigidbody;
 
@@ -18,10 +20,23 @@ public class PlayerAction : MonoBehaviour
     {
         h = Input.GetAxisRaw("Horizontal");
         v = Input.GetAxisRaw("Vertical");
+
+        bool hDown = Input.GetButtonDown("Horizontal");
+        bool vDown = Input.GetButtonDown("Vertical");
+        bool hUp = Input.GetButtonDown("Horizontal");
+        bool vUp = Input.GetButtonDown("Vertical");
+
+        if (hDown) {
+            isHorizonMove = true;
+        } else if (vDown)
+        {
+            isHorizonMove = false;
+        }
     }
 
     private void FixedUpdate()
     {
-        rigidbody.velocity = new Vector2(h, v) * speed;
+        Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
+        rigidbody.velocity = moveVec * speed;
     }
 }
