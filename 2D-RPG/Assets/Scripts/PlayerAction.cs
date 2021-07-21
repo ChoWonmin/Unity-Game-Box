@@ -26,10 +26,9 @@ public class PlayerAction : MonoBehaviour
         bool hUp = Input.GetButtonDown("Horizontal");
         bool vUp = Input.GetButtonDown("Vertical");
 
-        if (hDown) {
+        if (hDown || vUp) {
             isHorizonMove = true;
-        } else if (vDown)
-        {
+        } else if (vDown || hUp) {
             isHorizonMove = false;
         }
     }
