@@ -11,10 +11,12 @@ public class PlayerAction : MonoBehaviour
     bool isHorizonMove;
 
     Rigidbody2D rigidbody;
+    Animator anim;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
     void Update()
     {
@@ -23,19 +25,24 @@ public class PlayerAction : MonoBehaviour
 
         bool hDown = Input.GetButtonDown("Horizontal");
         bool vDown = Input.GetButtonDown("Vertical");
-        bool hUp = Input.GetButtonDown("Horizontal");
-        bool vUp = Input.GetButtonDown("Vertical");
+        bool hUp = Input.GetButtonUp("Horizontal");
+        bool vUp = Input.GetButtonUp("Vertical");
 
         if (hDown || vUp) {
             isHorizonMove = true;
         } else if (vDown || hUp) {
             isHorizonMove = false;
         }
+
+        // Animation
+        anim.SetInteger("hAxisRaw", (int)h);
+        anim.SetInteger("vAxisRaw", (int)v);
     }
 
     private void FixedUpdate()
     {
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
+
         rigidbody.velocity = moveVec * speed;
     }
 }
