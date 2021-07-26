@@ -35,8 +35,15 @@ public class PlayerAction : MonoBehaviour
         }
 
         // Animation
-        anim.SetInteger("hAxisRaw", (int)h);
-        anim.SetInteger("vAxisRaw", (int)v);
+        if (anim.GetInteger("hAxisRaw") != h) {
+            anim.SetBool("isChange", true);
+            anim.SetInteger("hAxisRaw", (int)h);
+        } else if (anim.GetInteger("vAxisRaw") != v) {
+            anim.SetBool("isChange", true);
+            anim.SetInteger("vAxisRaw", (int)v);
+        } else {
+            anim.SetBool("isChange", false);
+        }
     }
 
     private void FixedUpdate()
