@@ -28,10 +28,12 @@ public class PlayerAction : MonoBehaviour
         bool hUp = Input.GetButtonUp("Horizontal");
         bool vUp = Input.GetButtonUp("Vertical");
 
-        if (hDown || vUp) {
+        if (hDown) {
             isHorizonMove = true;
-        } else if (vDown || hUp) {
+        } else if (vDown) {
             isHorizonMove = false;
+        } else if (hUp || vUp) {
+            isHorizonMove = h != 0;
         }
 
         // Animation
