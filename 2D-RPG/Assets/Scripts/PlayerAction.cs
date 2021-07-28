@@ -9,6 +9,7 @@ public class PlayerAction : MonoBehaviour
     float h;
     float v;
     bool isHorizonMove;
+    Vector3 dirVec;
 
     Rigidbody2D rigidbody;
     Animator anim;
@@ -46,12 +47,32 @@ public class PlayerAction : MonoBehaviour
         } else {
             anim.SetBool("isChange", false);
         }
+
+        // Direction
+        if (vDown && v == 1)
+        {
+            dirVec = Vector3.up;
+        }
+        else if (vDown && v == -1)
+        {
+            dirVec = Vector3.down;
+        }
+        else if (hDown && h == 1)
+        {
+            dirVec = Vector3.right;
+        }
+        else if (hDown && h == -1)
+        {
+            dirVec = Vector3.left;
+        }
+
     }
 
     private void FixedUpdate()
     {
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
-
         rigidbody.velocity = moveVec * speed;
+
+        Debug.DrawRay(rigidbody.position, dirVec * 0.7f, new Color(0, 1, 0));
     }
 }
