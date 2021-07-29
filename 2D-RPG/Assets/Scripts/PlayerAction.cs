@@ -74,5 +74,6 @@ public class PlayerAction : MonoBehaviour
         rigidbody.velocity = moveVec * speed;
 
         Debug.DrawRay(rigidbody.position, dirVec * 0.7f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigidbody.position, dirVec, 0.7f);
     }
 }
