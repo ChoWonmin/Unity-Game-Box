@@ -10,6 +10,7 @@ public class PlayerAction : MonoBehaviour
     float v;
     bool isHorizonMove;
     Vector3 dirVec;
+    GameObject scanObject;
 
     Rigidbody2D rigidbody;
     Animator anim;
@@ -66,6 +67,12 @@ public class PlayerAction : MonoBehaviour
             dirVec = Vector3.left;
         }
 
+        // Scan Object
+        if (Input.GetButtonDown("Jump") && scanObject != null)
+        {
+            // Find Object
+        }
+
     }
 
     private void FixedUpdate()
@@ -74,6 +81,14 @@ public class PlayerAction : MonoBehaviour
         rigidbody.velocity = moveVec * speed;
 
         Debug.DrawRay(rigidbody.position, dirVec * 0.7f, new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigidbody.position, dirVec, 0.7f);
+        RaycastHit2D rayHit = Physics2D.Raycast(rigidbody.position, dirVec, 0.7f, LayerMask.GetMask("Object"));
+
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        } else
+        {
+            scanObject = null;
+        }
     }
 }
